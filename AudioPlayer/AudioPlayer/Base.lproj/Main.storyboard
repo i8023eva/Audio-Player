@@ -20,20 +20,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ms-Ti-Wzr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="165" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ms-Ti-Wzr">
                                 <rect key="frame" x="-15" y="64" width="615" height="544"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="8dy-1s-Dov">
-                                        <rect key="frame" x="0.0" y="92" width="615" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="8dy-1s-Dov" customClass="PlayListTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="615" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8dy-1s-Dov" id="H49-oR-KQh">
-                                            <rect key="frame" x="0.0" y="0.0" width="615" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="615" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU2-UO-y5d">
+                                                    <rect key="frame" x="219" y="44.5" width="42" height="30.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30.5" id="TMZ-Pi-GnQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVX-DW-lxb">
+                                                    <rect key="frame" x="10" y="10" width="176" height="99.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="1" green="0.914321558428006" blue="0.50092097194261564" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="AVX-DW-lxb" secondAttribute="height" multiplier="16:9" id="xrE-xn-pJ1"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="IU2-UO-y5d" firstAttribute="centerY" secondItem="H49-oR-KQh" secondAttribute="centerY" id="OrJ-ID-5GO"/>
+                                                <constraint firstItem="AVX-DW-lxb" firstAttribute="leading" secondItem="H49-oR-KQh" secondAttribute="leading" constant="10" id="YL6-lz-15D"/>
+                                                <constraint firstItem="IU2-UO-y5d" firstAttribute="leading" secondItem="AVX-DW-lxb" secondAttribute="trailing" constant="33" id="eIA-sB-VcT"/>
+                                                <constraint firstItem="AVX-DW-lxb" firstAttribute="leading" secondItem="H49-oR-KQh" secondAttribute="leading" constant="10" id="f2k-lG-GV0"/>
+                                                <constraint firstItem="AVX-DW-lxb" firstAttribute="top" secondItem="H49-oR-KQh" secondAttribute="top" constant="10" id="iQ0-Cq-65M"/>
+                                                <constraint firstAttribute="bottom" secondItem="AVX-DW-lxb" secondAttribute="bottom" constant="10" id="lNJ-6W-vLE"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="f2k-lG-GV0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="IU2-UO-y5d" id="dVu-Hr-gHd"/>
+                                            <outlet property="picImageView" destination="AVX-DW-lxb" id="H3E-NV-eg7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -53,12 +91,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="ioN-TK-NFG"/>
                     <connections>
+                        <outlet property="tableView" destination="0Ms-Ti-Wzr" id="HtQ-Tg-wD4"/>
                         <segue destination="8K9-nZ-Shk" kind="show" id="cRW-tN-cFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="-527"/>
+            <point key="canvasLocation" x="489" y="-700"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="Whj-dU-bdo">
@@ -249,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlK-lm-KJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-481"/>
+            <point key="canvasLocation" x="922" y="-420"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gu6-Lr-FNE">

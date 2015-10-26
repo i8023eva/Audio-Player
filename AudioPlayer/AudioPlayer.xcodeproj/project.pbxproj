@@ -15,7 +15,6 @@
 		14C414351BDE4B6200BD07F4 /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414091BDE4B6200BD07F4 /* PlayListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		14C414361BDE4B6200BD07F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4140E1BDE4B6200BD07F4 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		14C414371BDE4B6200BD07F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14C4140F1BDE4B6200BD07F4 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		14C414381BDE4B6200BD07F4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14C414101BDE4B6200BD07F4 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		14C414391BDE4B6200BD07F4 /* logo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 14C414111BDE4B6200BD07F4 /* logo.tiff */; settings = {ASSET_TAGS = (); }; };
 		14C4143A1BDE4B6200BD07F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414121BDE4B6200BD07F4 /* main.m */; settings = {ASSET_TAGS = (); }; };
 		14C4143B1BDE4B6200BD07F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414141BDE4B6200BD07F4 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -33,6 +32,11 @@
 		14C414471BDE4B6200BD07F4 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4142F1BDE4B6200BD07F4 /* UIImageView+HighlightedWebCache.m */; settings = {ASSET_TAGS = (); }; };
 		14C414481BDE4B6200BD07F4 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414311BDE4B6200BD07F4 /* UIImageView+WebCache.m */; settings = {ASSET_TAGS = (); }; };
 		14C414491BDE4B6200BD07F4 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414331BDE4B6200BD07F4 /* UIView+WebCacheOperation.m */; settings = {ASSET_TAGS = (); }; };
+		14C4144F1BDE4D5F00BD07F4 /* PlayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4144E1BDE4D5F00BD07F4 /* PlayListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		14C414521BDE4F1900BD07F4 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414511BDE4F1900BD07F4 /* NSArray+Log.m */; settings = {ASSET_TAGS = (); }; };
+		14C414551BDE4F2A00BD07F4 /* UIView+CGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C414541BDE4F2A00BD07F4 /* UIView+CGRect.m */; settings = {ASSET_TAGS = (); }; };
+		14C4145C1BDE504D00BD07F4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14C4145B1BDE504D00BD07F4 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		14C414601BDE516200BD07F4 /* PlayListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C4145F1BDE516200BD07F4 /* PlayListModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +73,8 @@
 		14C4140D1BDE4B6200BD07F4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14C4140E1BDE4B6200BD07F4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		14C4140F1BDE4B6200BD07F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		14C414101BDE4B6200BD07F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14C414111BDE4B6200BD07F4 /* logo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = logo.tiff; sourceTree = "<group>"; };
-		14C414121BDE4B6200BD07F4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14C414121BDE4B6200BD07F4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Other/main.m; sourceTree = "<group>"; };
 		14C414131BDE4B6200BD07F4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		14C414141BDE4B6200BD07F4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		14C414171BDE4B6200BD07F4 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -103,6 +106,17 @@
 		14C414311BDE4B6200BD07F4 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		14C414321BDE4B6200BD07F4 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		14C414331BDE4B6200BD07F4 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		14C4144D1BDE4D5F00BD07F4 /* PlayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListTableViewCell.h; sourceTree = "<group>"; };
+		14C4144E1BDE4D5F00BD07F4 /* PlayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListTableViewCell.m; sourceTree = "<group>"; };
+		14C414501BDE4F1900BD07F4 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		14C414511BDE4F1900BD07F4 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		14C414531BDE4F2A00BD07F4 /* UIView+CGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CGRect.h"; sourceTree = "<group>"; };
+		14C414541BDE4F2A00BD07F4 /* UIView+CGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CGRect.m"; sourceTree = "<group>"; };
+		14C414571BDE4F7B00BD07F4 /* EVASingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVASingleton.h; sourceTree = "<group>"; };
+		14C4145B1BDE504D00BD07F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AudioPlayer/Info.plist; sourceTree = SOURCE_ROOT; };
+		14C4145D1BDE50EE00BD07F4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = AudioPlayer/PrefixHeader.pch; sourceTree = SOURCE_ROOT; };
+		14C4145E1BDE516200BD07F4 /* PlayListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListModel.h; sourceTree = "<group>"; };
+		14C4145F1BDE516200BD07F4 /* PlayListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 		14C413941BDDC2ED00BD07F4 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				14C414561BDE4F7100BD07F4 /* Custom */,
 				14C413FE1BDE4B6200BD07F4 /* Category */,
 				14C413FF1BDE4B6200BD07F4 /* Main */,
 				14C4140C1BDE4B6200BD07F4 /* Other */,
@@ -165,6 +180,9 @@
 		14C413951BDDC2ED00BD07F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14C4145D1BDE50EE00BD07F4 /* PrefixHeader.pch */,
+				14C414121BDE4B6200BD07F4 /* main.m */,
+				14C4145B1BDE504D00BD07F4 /* Info.plist */,
 				14C4139E1BDDC2ED00BD07F4 /* Main.storyboard */,
 				14C413A31BDDC2ED00BD07F4 /* LaunchScreen.storyboard */,
 			);
@@ -192,6 +210,10 @@
 		14C413FE1BDE4B6200BD07F4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				14C414501BDE4F1900BD07F4 /* NSArray+Log.h */,
+				14C414511BDE4F1900BD07F4 /* NSArray+Log.m */,
+				14C414531BDE4F2A00BD07F4 /* UIView+CGRect.h */,
+				14C414541BDE4F2A00BD07F4 /* UIView+CGRect.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -260,6 +282,8 @@
 		14C4140A1BDE4B6200BD07F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14C4145E1BDE516200BD07F4 /* PlayListModel.h */,
+				14C4145F1BDE516200BD07F4 /* PlayListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +291,8 @@
 		14C4140B1BDE4B6200BD07F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14C4144D1BDE4D5F00BD07F4 /* PlayListTableViewCell.h */,
+				14C4144E1BDE4D5F00BD07F4 /* PlayListTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,9 +303,7 @@
 				14C4140D1BDE4B6200BD07F4 /* AppDelegate.h */,
 				14C4140E1BDE4B6200BD07F4 /* AppDelegate.m */,
 				14C4140F1BDE4B6200BD07F4 /* Assets.xcassets */,
-				14C414101BDE4B6200BD07F4 /* Info.plist */,
 				14C414111BDE4B6200BD07F4 /* logo.tiff */,
-				14C414121BDE4B6200BD07F4 /* main.m */,
 				14C414131BDE4B6200BD07F4 /* ViewController.h */,
 				14C414141BDE4B6200BD07F4 /* ViewController.m */,
 			);
@@ -328,6 +352,14 @@
 				14C414331BDE4B6200BD07F4 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		14C414561BDE4F7100BD07F4 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				14C414571BDE4F7B00BD07F4 /* EVASingleton.h */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,10 +468,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14C414381BDE4B6200BD07F4 /* Info.plist in Resources */,
 				14C413A51BDDC2ED00BD07F4 /* LaunchScreen.storyboard in Resources */,
 				14C414371BDE4B6200BD07F4 /* Assets.xcassets in Resources */,
 				14C413A01BDDC2ED00BD07F4 /* Main.storyboard in Resources */,
+				14C4145C1BDE504D00BD07F4 /* Info.plist in Resources */,
 				14C414391BDE4B6200BD07F4 /* logo.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +504,7 @@
 				14C4143E1BDE4B6200BD07F4 /* SDWebImageCompat.m in Sources */,
 				14C414491BDE4B6200BD07F4 /* UIView+WebCacheOperation.m in Sources */,
 				14C414451BDE4B6200BD07F4 /* UIImage+GIF.m in Sources */,
+				14C414601BDE516200BD07F4 /* PlayListModel.m in Sources */,
 				14C414431BDE4B6200BD07F4 /* SDWebImagePrefetcher.m in Sources */,
 				14C414341BDE4B6200BD07F4 /* PlayerViewController.m in Sources */,
 				14C4143A1BDE4B6200BD07F4 /* main.m in Sources */,
@@ -479,11 +512,14 @@
 				14C414441BDE4B6200BD07F4 /* UIButton+WebCache.m in Sources */,
 				14C414361BDE4B6200BD07F4 /* AppDelegate.m in Sources */,
 				14C4143C1BDE4B6200BD07F4 /* NSData+ImageContentType.m in Sources */,
+				14C414551BDE4F2A00BD07F4 /* UIView+CGRect.m in Sources */,
 				14C4143B1BDE4B6200BD07F4 /* ViewController.m in Sources */,
+				14C414521BDE4F1900BD07F4 /* NSArray+Log.m in Sources */,
 				14C414481BDE4B6200BD07F4 /* UIImageView+WebCache.m in Sources */,
 				14C414421BDE4B6200BD07F4 /* SDWebImageManager.m in Sources */,
 				14C4143F1BDE4B6200BD07F4 /* SDWebImageDecoder.m in Sources */,
 				14C4143D1BDE4B6200BD07F4 /* SDImageCache.m in Sources */,
+				14C4144F1BDE4D5F00BD07F4 /* PlayListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +658,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioPlayer/PrefixHeader.pch";
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = i8023eva.AudioPlayer;
@@ -633,6 +671,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioPlayer/PrefixHeader.pch";
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = i8023eva.AudioPlayer;
