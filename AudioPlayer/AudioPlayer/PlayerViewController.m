@@ -8,7 +8,7 @@
 
 #import "PlayerViewController.h"
 
-@interface PlayerViewController ()
+@interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -18,6 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = @"歌词";
+    return cell;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
