@@ -8,9 +8,16 @@
 
 #import "PlayerViewController.h"
 #import "AVPlayerManager.h"
+#import "MusicInfo.h"
+#import "UIImageView+WebCache.h"
 
-@interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate, AVPlayerManagerDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *musicLyric;
+@property (weak, nonatomic) IBOutlet UIImageView *musicPic;
 
+@property (nonatomic, strong) AVPlayerManager *playerManager;
+//接收歌词
+@property (nonatomic, strong) NSArray *lyricArr;
 
 @end
 
@@ -19,21 +26,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[AVPlayerManager sharedAVPlayer] prepareMusicWithIndex:self.musicIndex];
+    self.playerManager = [AVPlayerManager sharedAVPlayer];
+    self.playerManager.delegate = self;
     
-    [[AVPlayerManager sharedAVPlayer] musicPlay];
+    //调用准备播放的歌曲同时获取模型
+    MusicInfo *musicInfo = [self.playerManager prepareMusicWithIndex:self.musicIndex];
+    
+    self.lyricArr = [NSArray arrayWithArray:musicInfo.timeForLyric];
+    //tableView刷新
+    [self.musicLyric reloadData];
+    
+    [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+#warning 提前约束的生命周期
+    [self.musicPic layoutIfNeeded];
+    
+    [self.musicPic.layer setMasksToBounds:YES];
+    self.musicPic.layer.cornerRadius = self.musicPic.height / 2;
+    
+    
+    
+    [self.playerManager musicPlay];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    /**
+     *  约束在此方法内才会进行设置   需要提前
+     */
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return  self.lyricArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"歌词";
+    //
+    NSDictionary *dict = self.lyricArr[indexPath.row];
+    //
+    cell.textLabel.text = [[dict allValues] lastObject];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    
+    
     return cell;
 }
 
+#pragma mark - AVPlayerManagerDelegate
+-(void)didPlayChangeStatus {
+    self.musicPic.transform = CGAffineTransformRotate(self.musicPic.transform, M_PI / 180);
+}
 
 
 - (void)didReceiveMemoryWarning {

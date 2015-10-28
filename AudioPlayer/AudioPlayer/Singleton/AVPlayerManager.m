@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSMutableArray *playListArr;
 //播放器属性
 @property (nonatomic, strong) AVPlayer *player;
+
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation AVPlayerManager
@@ -60,7 +62,6 @@ EVASingletonM(AVPlayer)
             
             [self.playListArr addObject:musicInfo];
         }];
-            
         
         dispatch_async(dispatch_get_main_queue(), ^{
             handler();
@@ -68,18 +69,29 @@ EVASingletonM(AVPlayer)
     });
     
 }
-
--(void) prepareMusicWithIndex: (NSUInteger) index {
+#pragma mark - cell
+-(MusicInfo *) prepareMusicWithIndex: (NSUInteger) index {
+    //
     MusicInfo *musicInfo = [self getMusicInfoWithIndex:index];
     //
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:musicInfo.mp3Url]];
-    //
+    //替换当前的 Item
     [self.player replaceCurrentItemWithPlayerItem:playerItem];
     
+    return musicInfo;
 }
-
+#pragma mark - 播放
 -(void) musicPlay {
+    //创建定时器
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [self.player play];
+}
+#pragma mark - delagate 的调用
+-(void) timerAction {
+    if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus)]) {
+        //播放时, 外部调用改变状态的方法
+        [self.delegate didPlayChangeStatus];
+    }
 }
 
 @end

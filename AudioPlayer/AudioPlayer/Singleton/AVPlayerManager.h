@@ -7,12 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
 @class MusicInfo;
+
+@protocol AVPlayerManagerDelegate <NSObject>
+
+-(void) didPlayChangeStatus;
+
+@end
+
 @interface AVPlayerManager : NSObject
 //播放列表歌曲数目
 @property (nonatomic, assign, readonly) NSUInteger playListCount;
+
+@property (nonatomic, weak) id<AVPlayerManagerDelegate> delegate;
 
 EVASingletonH(AVPlayer)
 
@@ -34,7 +41,7 @@ EVASingletonH(AVPlayer)
  *
  *  @param index 列表中的第几首
  */
--(void) prepareMusicWithIndex: (NSUInteger) index;
+-(MusicInfo *) prepareMusicWithIndex: (NSUInteger) index;
 /**
  *  播放音乐
  */

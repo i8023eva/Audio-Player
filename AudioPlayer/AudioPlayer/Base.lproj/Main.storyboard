@@ -298,6 +298,10 @@
                             <constraint firstItem="vUA-gw-aCU" firstAttribute="top" secondItem="C7h-2O-A0r" secondAttribute="bottom" id="qq2-0x-x7p"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="musicLyric" destination="Bf1-k4-htV" id="phc-I0-T8r"/>
+                        <outlet property="musicPic" destination="90u-GR-H3N" id="003-FV-eRJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlK-lm-KJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
