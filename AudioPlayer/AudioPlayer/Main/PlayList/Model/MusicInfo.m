@@ -35,7 +35,7 @@
 
 
 
-
+#pragma mark - 处理 id 和 lyric
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     if ([key isEqualToString:@"id"]) {
         self.ID = value;

@@ -11,78 +11,59 @@
 #import "PlayListModel.h"
 #import "PlayListTableViewCell.h"
 #import "AVPlayerManager.h"
+#import "MusicInfo.h"
 
 @interface PlayListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *playListArray;
+@property (nonatomic, strong) AVPlayerManager *playerManager;
+
 @end
 
 @implementation PlayListViewController
 
--(NSMutableArray *)playListArray {
-    if (_playListArray == nil) {
-        
-        _playListArray = [NSMutableArray array];
-    }
-    return _playListArray;
-}
-
+#pragma mark - dataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.playListArray.count;
+    return self.playerManager.playListCount;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PlayListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.playListModel = self.playListArray[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.playListModel = self.playListArray[indexPath.row];
+    
+    MusicInfo *musicInfo = [self.playerManager getMusicInfoWithIndex:indexPath.row];
+    
+    cell.textLabel.text = musicInfo.name;
+    
     return cell;
 }
 
+#pragma mark - delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayerViewController *playerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
     
     [self.navigationController pushViewController:playerVC animated:YES];
 }
 
-#pragma mark - 加载网络数据
--(void) loadData {
-    NSURL *URL = [NSURL URLWithString:@"http://project.lanou3g.com/teacher/UIAPI/MusicInfoList.plist"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:15];
-    
-    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        NSArray *arr = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListMutableContainers format:NULL error:NULL];
-        
-        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            PlayListModel *model = [PlayListModel new];
-            [model setValuesForKeysWithDictionary:obj];
-            [self.playListArray addObject:model];
-        }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.tableView reloadData];
-        });
-        
-    }];
-    [dataTask resume];
-}
-
+#pragma mark - view load
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self loadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[AVPlayerManager sharedAVPlayer] getPlayListCompletionHandler:^{
+    self.playerManager = [AVPlayerManager sharedAVPlayer];
+    
+    [self.playerManager getPlayListCompletionHandler:^{
         
         [self.tableView reloadData];
     }];
 }
 
+#pragma mark -
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
