@@ -6,7 +6,6 @@
 //  Copyright © 2015年 lyh. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @interface MusicInfo : NSObject
 @property (nonatomic, strong) NSString * mp3Url;       // 歌曲的Url

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 itcast. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
 @interface UIImage (NJ)
 + (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;

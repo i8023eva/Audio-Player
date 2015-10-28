@@ -88,10 +88,21 @@ EVASingletonM(AVPlayer)
 }
 #pragma mark - delagate 的调用
 -(void) timerAction {
-    if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus)]) {
-        //播放时, 外部调用改变状态的方法
-        [self.delegate didPlayChangeStatus];
+    if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus:)]) {
+        
+//        self.player.currentTime.value / self.player.currentTime.   当前播放时间
+        CGFloat currentTime =  CMTimeGetSeconds(self.player.currentTime);
+        
+        //播放时, 外部调用改变状态的方法  ---传值: 时间字符串
+        [self.delegate didPlayChangeStatus:[self formatTimeString:currentTime]];
     }
+}
+#pragma mark - 格式化时间
+-(NSString *) formatTimeString :(CGFloat) currentTime {
+    // 00:00
+    NSString *formatStr = [NSString stringWithFormat:@"%02ld:%02ld", (NSInteger)currentTime / 60, (NSInteger)currentTime % 60];
+    
+    return formatStr;
 }
 
 @end

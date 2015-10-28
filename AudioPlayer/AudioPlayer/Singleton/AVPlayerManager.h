@@ -6,12 +6,12 @@
 //  Copyright © 2015年 lyh. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
 @class MusicInfo;
 
 @protocol AVPlayerManagerDelegate <NSObject>
 
--(void) didPlayChangeStatus;
+-(void) didPlayChangeStatus: (NSString *) time;
 
 @end
 

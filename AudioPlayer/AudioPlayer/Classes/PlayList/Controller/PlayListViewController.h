@@ -6,7 +6,6 @@
 //  Copyright © 2015年 lyh. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ViewController.h"
 
 @interface PlayListViewController : ViewController

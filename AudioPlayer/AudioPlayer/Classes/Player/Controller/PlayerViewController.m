@@ -67,13 +67,33 @@
     //
     cell.textLabel.text = [[dict allValues] lastObject];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
+    //设置歌词高亮颜色
+    cell.textLabel.highlightedTextColor = [UIColor magentaColor];
     
+    UIView *view = [[UIView alloc]initWithFrame:cell.contentView.frame];
+    view.backgroundColor = [UIColor clearColor];
+    
+    cell.selectedBackgroundView = view;
     
     return cell;
 }
 
 #pragma mark - AVPlayerManagerDelegate
--(void)didPlayChangeStatus {
+-(void)didPlayChangeStatus:(NSString *)time {
+    for (int i = 0; i < self.lyricArr.count; i++) {
+        NSDictionary *dict = self.lyricArr[i];
+        //是否和歌词中的时间相同
+        if ([time isEqualToString:[[dict allKeys] lastObject]]) {
+            NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:0];
+            [self.musicLyric selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];
+        }
+        
+    }
+    
+    
+    
     self.musicPic.transform = CGAffineTransformRotate(self.musicPic.transform, M_PI / 180);
 }
 

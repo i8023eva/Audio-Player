@@ -8,7 +8,6 @@
  *  使控件都能跳过 .frame .size .origin 的过程
  */
 
-#import <UIKit/UIKit.h>
 
 @interface UIView (CGRect)
 #warning
