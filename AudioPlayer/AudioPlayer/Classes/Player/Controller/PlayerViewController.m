@@ -7,8 +7,10 @@
 //
 
 #import "PlayerViewController.h"
+#import "AVPlayerManager.h"
 
 @interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 
 @end
 
@@ -17,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[AVPlayerManager sharedAVPlayer] prepareMusicWithIndex:self.musicIndex];
+    
+    [[AVPlayerManager sharedAVPlayer] musicPlay];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -39,7 +39,12 @@
 
 #pragma mark - delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.playerManager prepareMusicWithIndex:indexPath.row];
+    
     PlayerViewController *playerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    
+    playerVC.musicIndex = indexPath.row;
     
     [self.navigationController pushViewController:playerVC animated:YES];
 }

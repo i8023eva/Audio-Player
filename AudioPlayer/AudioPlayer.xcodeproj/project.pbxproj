@@ -198,8 +198,8 @@
 		1475DA241BE0746300EF80D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1475DA251BE0746300EF80D2 /* Player */,
 				1475DA2B1BE0746300EF80D2 /* PlayList */,
+				1475DA251BE0746300EF80D2 /* Player */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

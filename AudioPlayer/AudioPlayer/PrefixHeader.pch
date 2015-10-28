@@ -15,6 +15,7 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+@import AVFoundation;
 #import "EVASingleton.h"
 #import "NSArray+Log.h"
 #import "UIView+CGRect.h"

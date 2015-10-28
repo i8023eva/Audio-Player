@@ -10,14 +10,24 @@
 #import "URL.h"
 #import "MusicInfo.h"
 
+
 @interface AVPlayerManager ()
 
 @property (nonatomic, strong) NSMutableArray *playListArr;
+//播放器属性
+@property (nonatomic, strong) AVPlayer *player;
 @end
 
 @implementation AVPlayerManager
 
 EVASingletonM(AVPlayer)
+
+-(AVPlayer *)player {
+    if (_player == nil) {
+        _player = [[AVPlayer alloc]init];
+    }
+    return _player;
+}
 
 -(NSMutableArray *)playListArr {
     if (_playListArr == nil) {
@@ -57,6 +67,19 @@ EVASingletonM(AVPlayer)
         });
     });
     
+}
+
+-(void) prepareMusicWithIndex: (NSUInteger) index {
+    MusicInfo *musicInfo = [self getMusicInfoWithIndex:index];
+    //
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:musicInfo.mp3Url]];
+    //
+    [self.player replaceCurrentItemWithPlayerItem:playerItem];
+    
+}
+
+-(void) musicPlay {
+    [self.player play];
 }
 
 @end
