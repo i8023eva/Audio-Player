@@ -5,7 +5,7 @@
 #if __has_feature(objc_arc)
 
     #define EVASingletonM(name) \
-    static id _instace; \
+    static id _instace = nil; \
  \
     + (id)allocWithZone:(struct _NSZone *)zone \
     { \

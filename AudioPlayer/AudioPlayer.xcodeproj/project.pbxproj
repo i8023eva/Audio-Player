@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1475D9EF1BE056CC00EF80D2 /* UIImage+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475D9EE1BE056CC00EF80D2 /* UIImage+NJ.m */; settings = {ASSET_TAGS = (); }; };
+		1475D9F21BE0576800EF80D2 /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475D9F11BE0576800EF80D2 /* AVPlayerManager.m */; settings = {ASSET_TAGS = (); }; };
 		14C413A01BDDC2ED00BD07F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4139E1BDDC2ED00BD07F4 /* Main.storyboard */; };
 		14C413A51BDDC2ED00BD07F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C413A31BDDC2ED00BD07F4 /* LaunchScreen.storyboard */; };
 		14C413B01BDDC2ED00BD07F4 /* AudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C413AF1BDDC2ED00BD07F4 /* AudioPlayerTests.m */; };
@@ -57,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1475D9ED1BE056CC00EF80D2 /* UIImage+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NJ.h"; sourceTree = "<group>"; };
+		1475D9EE1BE056CC00EF80D2 /* UIImage+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NJ.m"; sourceTree = "<group>"; };
+		1475D9F01BE0576800EF80D2 /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
+		1475D9F11BE0576800EF80D2 /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
+		1475D9F31BE05AD100EF80D2 /* URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL.h; sourceTree = "<group>"; };
 		14C413921BDDC2ED00BD07F4 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4139F1BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14C413A41BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -210,6 +217,8 @@
 		14C413FE1BDE4B6200BD07F4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1475D9ED1BE056CC00EF80D2 /* UIImage+NJ.h */,
+				1475D9EE1BE056CC00EF80D2 /* UIImage+NJ.m */,
 				14C414501BDE4F1900BD07F4 /* NSArray+Log.h */,
 				14C414511BDE4F1900BD07F4 /* NSArray+Log.m */,
 				14C414531BDE4F2A00BD07F4 /* UIView+CGRect.h */,
@@ -358,6 +367,9 @@
 			isa = PBXGroup;
 			children = (
 				14C414571BDE4F7B00BD07F4 /* EVASingleton.h */,
+				1475D9F01BE0576800EF80D2 /* AVPlayerManager.h */,
+				1475D9F11BE0576800EF80D2 /* AVPlayerManager.m */,
+				1475D9F31BE05AD100EF80D2 /* URL.h */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -501,6 +513,7 @@
 				14C414461BDE4B6200BD07F4 /* UIImage+MultiFormat.m in Sources */,
 				14C414411BDE4B6200BD07F4 /* SDWebImageDownloaderOperation.m in Sources */,
 				14C414351BDE4B6200BD07F4 /* PlayListViewController.m in Sources */,
+				1475D9F21BE0576800EF80D2 /* AVPlayerManager.m in Sources */,
 				14C4143E1BDE4B6200BD07F4 /* SDWebImageCompat.m in Sources */,
 				14C414491BDE4B6200BD07F4 /* UIView+WebCacheOperation.m in Sources */,
 				14C414451BDE4B6200BD07F4 /* UIImage+GIF.m in Sources */,
@@ -508,6 +521,7 @@
 				14C414431BDE4B6200BD07F4 /* SDWebImagePrefetcher.m in Sources */,
 				14C414341BDE4B6200BD07F4 /* PlayerViewController.m in Sources */,
 				14C4143A1BDE4B6200BD07F4 /* main.m in Sources */,
+				1475D9EF1BE056CC00EF80D2 /* UIImage+NJ.m in Sources */,
 				14C414401BDE4B6200BD07F4 /* SDWebImageDownloader.m in Sources */,
 				14C414441BDE4B6200BD07F4 /* UIButton+WebCache.m in Sources */,
 				14C414361BDE4B6200BD07F4 /* AppDelegate.m in Sources */,
@@ -747,6 +761,7 @@
 				14C413C11BDDC2ED00BD07F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14C413C21BDDC2ED00BD07F4 /* Build configuration list for PBXNativeTarget "AudioPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -755,6 +770,7 @@
 				14C413C41BDDC2ED00BD07F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14C413C51BDDC2ED00BD07F4 /* Build configuration list for PBXNativeTarget "AudioPlayerUITests" */ = {
 			isa = XCConfigurationList;
@@ -763,6 +779,7 @@
 				14C413C71BDDC2ED00BD07F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
