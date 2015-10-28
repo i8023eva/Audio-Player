@@ -10,6 +10,7 @@
 #import "PlayerViewController.h"
 #import "PlayListModel.h"
 #import "PlayListTableViewCell.h"
+#import "AVPlayerManager.h"
 
 @interface PlayListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -76,6 +77,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[AVPlayerManager sharedAVPlayer] getPlayListCompletionHandler:^{
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

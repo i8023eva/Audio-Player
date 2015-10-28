@@ -7,6 +7,7 @@
 //
 
 #import "PlayListModel.h"
+#import "AVPlayerManager.h"
 
 @interface PlayListModel ()
 
@@ -30,6 +31,9 @@
 }
 
 +(NSMutableArray *) playList{
+    
+     
+    
     NSMutableArray *tmpArray = [NSMutableArray array];
     
     NSURL *URL = [NSURL URLWithString:@"http://project.lanou3g.com/teacher/UIAPI/MusicInfoList.plist"];

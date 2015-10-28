@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1475D9EF1BE056CC00EF80D2 /* UIImage+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475D9EE1BE056CC00EF80D2 /* UIImage+NJ.m */; settings = {ASSET_TAGS = (); }; };
 		1475D9F21BE0576800EF80D2 /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475D9F11BE0576800EF80D2 /* AVPlayerManager.m */; settings = {ASSET_TAGS = (); }; };
+		1475D9F61BE05E3300EF80D2 /* MusicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475D9F51BE05E3300EF80D2 /* MusicInfo.m */; settings = {ASSET_TAGS = (); }; };
 		14C413A01BDDC2ED00BD07F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4139E1BDDC2ED00BD07F4 /* Main.storyboard */; };
 		14C413A51BDDC2ED00BD07F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C413A31BDDC2ED00BD07F4 /* LaunchScreen.storyboard */; };
 		14C413B01BDDC2ED00BD07F4 /* AudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C413AF1BDDC2ED00BD07F4 /* AudioPlayerTests.m */; };
@@ -64,6 +65,8 @@
 		1475D9F01BE0576800EF80D2 /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
 		1475D9F11BE0576800EF80D2 /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
 		1475D9F31BE05AD100EF80D2 /* URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL.h; sourceTree = "<group>"; };
+		1475D9F41BE05E3300EF80D2 /* MusicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInfo.h; sourceTree = "<group>"; };
+		1475D9F51BE05E3300EF80D2 /* MusicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInfo.m; sourceTree = "<group>"; };
 		14C413921BDDC2ED00BD07F4 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4139F1BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14C413A41BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 			children = (
 				14C4145E1BDE516200BD07F4 /* PlayListModel.h */,
 				14C4145F1BDE516200BD07F4 /* PlayListModel.m */,
+				1475D9F41BE05E3300EF80D2 /* MusicInfo.h */,
+				1475D9F51BE05E3300EF80D2 /* MusicInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C414471BDE4B6200BD07F4 /* UIImageView+HighlightedWebCache.m in Sources */,
+				1475D9F61BE05E3300EF80D2 /* MusicInfo.m in Sources */,
 				14C414461BDE4B6200BD07F4 /* UIImage+MultiFormat.m in Sources */,
 				14C414411BDE4B6200BD07F4 /* SDWebImageDownloaderOperation.m in Sources */,
 				14C414351BDE4B6200BD07F4 /* PlayListViewController.m in Sources */,
