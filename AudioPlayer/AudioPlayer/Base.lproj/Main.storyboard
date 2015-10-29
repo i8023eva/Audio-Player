@@ -130,6 +130,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbk-Gz-wqX" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="1200" height="300"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-0v-Fue" userLabel="blurPic">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                                <animations/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9v-C3-ruW">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                                 <subviews>
@@ -143,7 +147,7 @@
                                                     </imageView>
                                                 </subviews>
                                                 <animations/>
-                                                <color key="backgroundColor" red="1" green="0.81160100221323883" blue="0.52817532498888831" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="90u-GR-H3N" firstAttribute="height" secondItem="w9v-C3-ruW" secondAttribute="height" multiplier="0.8" id="NdP-5P-UD1"/>
                                                     <constraint firstItem="90u-GR-H3N" firstAttribute="centerY" secondItem="w9v-C3-ruW" secondAttribute="centerY" id="pa7-HG-Vss"/>
@@ -176,11 +180,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="w9v-C3-ruW" firstAttribute="top" secondItem="rbk-Gz-wqX" secondAttribute="top" id="25o-vm-9oo"/>
+                                            <constraint firstItem="Htq-0v-Fue" firstAttribute="top" secondItem="rbk-Gz-wqX" secondAttribute="top" id="6av-Pd-YCm"/>
                                             <constraint firstItem="Bf1-k4-htV" firstAttribute="top" secondItem="rbk-Gz-wqX" secondAttribute="top" id="OSR-Vu-3mA"/>
                                             <constraint firstItem="w9v-C3-ruW" firstAttribute="leading" secondItem="rbk-Gz-wqX" secondAttribute="leading" id="WMx-ZU-ZEh"/>
+                                            <constraint firstAttribute="bottom" secondItem="Htq-0v-Fue" secondAttribute="bottom" id="Wjg-oh-xFO"/>
                                             <constraint firstAttribute="bottom" secondItem="Bf1-k4-htV" secondAttribute="bottom" id="lr0-go-V0z"/>
                                             <constraint firstAttribute="bottom" secondItem="w9v-C3-ruW" secondAttribute="bottom" id="ofn-Sj-CE9"/>
                                             <constraint firstAttribute="trailing" secondItem="Bf1-k4-htV" secondAttribute="trailing" id="pPF-bL-3tZ"/>
+                                            <constraint firstItem="Htq-0v-Fue" firstAttribute="leading" secondItem="rbk-Gz-wqX" secondAttribute="leading" id="ppc-fc-FEz"/>
                                             <constraint firstItem="Bf1-k4-htV" firstAttribute="leading" secondItem="w9v-C3-ruW" secondAttribute="trailing" id="vxb-Bw-8Qt"/>
                                         </constraints>
                                     </view>
@@ -191,15 +198,16 @@
                                     <constraint firstItem="rbk-Gz-wqX" firstAttribute="width" secondItem="aoH-nb-dQd" secondAttribute="width" multiplier="2:1" id="3io-B6-LVc"/>
                                     <constraint firstItem="rbk-Gz-wqX" firstAttribute="top" secondItem="aoH-nb-dQd" secondAttribute="top" id="G3U-7J-Ewh"/>
                                     <constraint firstItem="rbk-Gz-wqX" firstAttribute="leading" secondItem="aoH-nb-dQd" secondAttribute="leading" id="IhI-Mg-Sif"/>
+                                    <constraint firstItem="Htq-0v-Fue" firstAttribute="width" secondItem="aoH-nb-dQd" secondAttribute="width" id="Ktz-hV-PyD"/>
                                     <constraint firstAttribute="trailing" secondItem="rbk-Gz-wqX" secondAttribute="trailing" id="fVA-Ni-K3t"/>
                                     <constraint firstItem="rbk-Gz-wqX" firstAttribute="centerY" secondItem="aoH-nb-dQd" secondAttribute="centerY" id="gml-uG-AN7"/>
                                     <constraint firstAttribute="bottom" secondItem="rbk-Gz-wqX" secondAttribute="bottom" id="yzJ-S7-ZBx"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7h-2O-A0r">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7h-2O-A0r" customClass="PlayerConsole">
                                 <rect key="frame" x="0.0" y="364" width="600" height="236"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-g3-DaB">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A0x-g3-DaB">
                                         <rect key="frame" x="108" y="75" width="194" height="31"/>
                                         <animations/>
                                         <constraints>
@@ -283,6 +291,15 @@
                                     <constraint firstItem="62L-6N-JOZ" firstAttribute="centerY" secondItem="xDC-GV-gfK" secondAttribute="centerY" id="pqN-3q-UKt"/>
                                     <constraint firstItem="vCJ-73-Tb5" firstAttribute="top" secondItem="C7h-2O-A0r" secondAttribute="top" constant="30" id="qBN-XY-nf5"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="currentLabel" destination="xDC-GV-gfK" id="v2w-nN-yST"/>
+                                    <outlet property="nextButton" destination="Jzj-pP-MQy" id="cqw-Al-1Lq"/>
+                                    <outlet property="playButton" destination="QcQ-nH-t9i" id="2nD-hO-9Jn"/>
+                                    <outlet property="timeSlider" destination="vCJ-73-Tb5" id="Zr2-9v-bkP"/>
+                                    <outlet property="totalTimeLabel" destination="62L-6N-JOZ" id="FQr-iN-OhI"/>
+                                    <outlet property="upButton" destination="yco-dq-41F" id="ltp-Cr-l8R"/>
+                                    <outlet property="volumeSlider" destination="A0x-g3-DaB" id="lbc-hu-MOf"/>
+                                </connections>
                             </view>
                         </subviews>
                         <animations/>
@@ -299,8 +316,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backImageView" destination="Htq-0v-Fue" id="GHT-Za-bUl"/>
                         <outlet property="musicLyric" destination="Bf1-k4-htV" id="phc-I0-T8r"/>
                         <outlet property="musicPic" destination="90u-GR-H3N" id="003-FV-eRJ"/>
+                        <outlet property="playerConsole" destination="C7h-2O-A0r" id="5GO-Se-F2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlK-lm-KJh" userLabel="First Responder" sceneMemberID="firstResponder"/>

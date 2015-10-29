@@ -9,6 +9,7 @@
 #import "AVPlayerManager.h"
 #import "URL.h"
 #import "MusicInfo.h"
+#import "MusicTimeFormat.h"
 
 
 @interface AVPlayerManager ()
@@ -86,6 +87,13 @@ EVASingletonM(AVPlayer)
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     [self.player play];
 }
+#pragma mark - 暂停
+-(void) musicPause {
+    [self.player pause];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+}
 #pragma mark - delagate 的调用
 -(void) timerAction {
     if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus:)]) {
@@ -94,15 +102,9 @@ EVASingletonM(AVPlayer)
         CGFloat currentTime =  CMTimeGetSeconds(self.player.currentTime);
         
         //播放时, 外部调用改变状态的方法  ---传值: 时间字符串
-        [self.delegate didPlayChangeStatus:[self formatTimeString:currentTime]];
+        [self.delegate didPlayChangeStatus:[MusicTimeFormat getStringFormatBySeconds:currentTime]];
     }
 }
-#pragma mark - 格式化时间
--(NSString *) formatTimeString :(CGFloat) currentTime {
-    // 00:00
-    NSString *formatStr = [NSString stringWithFormat:@"%02ld:%02ld", (NSInteger)currentTime / 60, (NSInteger)currentTime % 60];
-    
-    return formatStr;
-}
+
 
 @end

@@ -27,6 +27,8 @@
 		1475DA391BE0746300EF80D2 /* MusicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475DA311BE0746300EF80D2 /* MusicInfo.m */; settings = {ASSET_TAGS = (); }; };
 		1475DA431BE074A600EF80D2 /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475DA3F1BE074A600EF80D2 /* AVPlayerManager.m */; settings = {ASSET_TAGS = (); }; };
 		1475DA461BE076AA00EF80D2 /* PlayListCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475DA451BE076AA00EF80D2 /* PlayListCustomCell.m */; settings = {ASSET_TAGS = (); }; };
+		14C0FAE31BE1AD55004BAAB2 /* MusicTimeFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C0FAE21BE1AD55004BAAB2 /* MusicTimeFormat.m */; settings = {ASSET_TAGS = (); }; };
+		14C0FAE61BE1B02A004BAAB2 /* PlayerConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C0FAE51BE1B02A004BAAB2 /* PlayerConsole.m */; settings = {ASSET_TAGS = (); }; };
 		14C413A01BDDC2ED00BD07F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C4139E1BDDC2ED00BD07F4 /* Main.storyboard */; };
 		14C413A51BDDC2ED00BD07F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C413A31BDDC2ED00BD07F4 /* LaunchScreen.storyboard */; };
 		14C413B01BDDC2ED00BD07F4 /* AudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C413AF1BDDC2ED00BD07F4 /* AudioPlayerTests.m */; };
@@ -102,6 +104,10 @@
 		1475DA421BE074A600EF80D2 /* URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL.h; sourceTree = "<group>"; };
 		1475DA441BE076AA00EF80D2 /* PlayListCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListCustomCell.h; sourceTree = "<group>"; };
 		1475DA451BE076AA00EF80D2 /* PlayListCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayListCustomCell.m; sourceTree = "<group>"; };
+		14C0FAE11BE1AD55004BAAB2 /* MusicTimeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTimeFormat.h; sourceTree = "<group>"; };
+		14C0FAE21BE1AD55004BAAB2 /* MusicTimeFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTimeFormat.m; sourceTree = "<group>"; };
+		14C0FAE41BE1B02A004BAAB2 /* PlayerConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerConsole.h; sourceTree = "<group>"; };
+		14C0FAE51BE1B02A004BAAB2 /* PlayerConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerConsole.m; sourceTree = "<group>"; };
 		14C413921BDDC2ED00BD07F4 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C4139F1BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14C413A41BDDC2ED00BD07F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -233,6 +239,8 @@
 		1475DA2A1BE0746300EF80D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14C0FAE41BE1B02A004BAAB2 /* PlayerConsole.h */,
+				14C0FAE51BE1B02A004BAAB2 /* PlayerConsole.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				1475DA421BE074A600EF80D2 /* URL.h */,
+				14C0FAE11BE1AD55004BAAB2 /* MusicTimeFormat.h */,
+				14C0FAE21BE1AD55004BAAB2 /* MusicTimeFormat.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -526,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1475DA161BE0741C00EF80D2 /* NSData+ImageContentType.m in Sources */,
+				14C0FAE31BE1AD55004BAAB2 /* MusicTimeFormat.m in Sources */,
 				1475DA1E1BE0741C00EF80D2 /* UIButton+WebCache.m in Sources */,
 				1475DA1D1BE0741C00EF80D2 /* SDWebImagePrefetcher.m in Sources */,
 				1475DA231BE0741C00EF80D2 /* UIView+WebCacheOperation.m in Sources */,
@@ -545,6 +556,7 @@
 				14C414551BDE4F2A00BD07F4 /* UIView+CGRect.m in Sources */,
 				14C4143B1BDE4B6200BD07F4 /* ViewController.m in Sources */,
 				14C414521BDE4F1900BD07F4 /* NSArray+Log.m in Sources */,
+				14C0FAE61BE1B02A004BAAB2 /* PlayerConsole.m in Sources */,
 				1475DA431BE074A600EF80D2 /* AVPlayerManager.m in Sources */,
 				1475DA191BE0741C00EF80D2 /* SDWebImageDecoder.m in Sources */,
 				1475DA181BE0741C00EF80D2 /* SDWebImageCompat.m in Sources */,

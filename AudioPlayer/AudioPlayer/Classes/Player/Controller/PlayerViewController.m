@@ -10,10 +10,15 @@
 #import "AVPlayerManager.h"
 #import "MusicInfo.h"
 #import "UIImageView+WebCache.h"
+#import "PlayerConsole.h"
 
 @interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate, AVPlayerManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *musicLyric;
 @property (weak, nonatomic) IBOutlet UIImageView *musicPic;
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+//控制台
+@property (weak, nonatomic) IBOutlet PlayerConsole *playerConsole;
+
 
 @property (nonatomic, strong) AVPlayerManager *playerManager;
 //接收歌词
@@ -32,11 +37,16 @@
     //调用准备播放的歌曲同时获取模型
     MusicInfo *musicInfo = [self.playerManager prepareMusicWithIndex:self.musicIndex];
     
+    //控制台信息
+    [self.playerConsole prepareMusicWithInfo:musicInfo];
+    
     self.lyricArr = [NSArray arrayWithArray:musicInfo.timeForLyric];
     //tableView刷新
     [self.musicLyric reloadData];
     
+    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
     [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+
 #warning 提前约束的生命周期
     [self.musicPic layoutIfNeeded];
     
@@ -44,6 +54,8 @@
     self.musicPic.layer.cornerRadius = self.musicPic.height / 2;
     
     
+
+     
     
     [self.playerManager musicPlay];
 }
@@ -87,13 +99,9 @@
         //是否和歌词中的时间相同
         if ([time isEqualToString:[[dict allKeys] lastObject]]) {
             NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:0];
-            [self.musicLyric selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionTop];
+            [self.musicLyric selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionMiddle];
         }
-        
     }
-    
-    
-    
     self.musicPic.transform = CGAffineTransformRotate(self.musicPic.transform, M_PI / 180);
 }
 

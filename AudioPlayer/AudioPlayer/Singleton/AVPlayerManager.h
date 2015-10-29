@@ -46,6 +46,10 @@ EVASingletonH(AVPlayer)
  *  播放音乐
  */
 -(void) musicPlay;
+/**
+ *  暂停
+ */
+-(void) musicPause;
 
 
 @end
