@@ -48,7 +48,7 @@
         [[AVPlayerManager sharedAVPlayer] musicPause];
     }
 }
-
+#pragma mark - 拖拽进度& 音量
 -(IBAction) didTimeSliderValueChange: (UISlider *)sender {
     [[AVPlayerManager sharedAVPlayer] musicSeekToTime:sender.value];
 }
@@ -56,7 +56,14 @@
 -(IBAction) didVolumeValueChange: (UISlider *)sender {
     [[AVPlayerManager sharedAVPlayer] musicVolume:sender.value];
 }
+#pragma mark - 点击换歌
+-(IBAction) didUpButtonClick:(UIButton *)sender {
+    [[AVPlayerManager sharedAVPlayer] musicUp];
+}
 
+-(IBAction) didNextButtonClivk:(UIButton *)sender {
+    [[AVPlayerManager sharedAVPlayer] musicNext];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

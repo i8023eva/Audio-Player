@@ -19,11 +19,28 @@
 @property (nonatomic, strong) AVPlayer *player;
 
 @property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation AVPlayerManager
 
 EVASingletonM(AVPlayer)
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didMusicFinished) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    }
+    return self;
+}
+
+#pragma mark - 通知  下一首  计时器
+-(void) didMusicFinished {
+    [self musicPause];
+    [self musicNext];
+    [self musicPlay];
+}
 
 -(AVPlayer *)player {
     if (_player == nil) {
@@ -70,16 +87,24 @@ EVASingletonM(AVPlayer)
     });
     
 }
-#pragma mark - cell
--(MusicInfo *) prepareMusicWithIndex: (NSUInteger) index {
-    //
-    MusicInfo *musicInfo = [self getMusicInfoWithIndex:index];
-    //
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:musicInfo.mp3Url]];
-    //替换当前的 Item
-    [self.player replaceCurrentItemWithPlayerItem:playerItem];
-    
-    return musicInfo;
+#pragma mark - cell  ----Managerdelegate
+-(void) prepareMusicWithIndex: (NSUInteger) index {
+    if (index != self.currentIndex) {
+        
+        self.currentIndex = index;
+        //
+        MusicInfo *musicInfo = [self getMusicInfoWithIndex:index];
+        
+        if ([self.delegate respondsToSelector:@selector(didMusicCutWithMusicInfo:)]) {
+            [self.delegate didMusicCutWithMusicInfo:musicInfo];
+        }
+        //
+        AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:musicInfo.mp3Url]];
+        //替换当前的 Item
+        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+       
+        
+    }
 }
 #pragma mark - 播放
 -(void) musicPlay {
@@ -97,6 +122,21 @@ EVASingletonM(AVPlayer)
 -(void) musicStop {
     
 }
+#pragma mark - 上一首
+-(void)musicUp {
+    [self prepareMusicWithIndex:self.currentIndex - 1 < 0 ? self.playListArr.count - 1 : self.currentIndex - 1];
+}
+#pragma mark - 下一首
+-(void)musicNext {
+    [self prepareMusicWithIndex:self.currentIndex + 1 < self.playListArr.count ? self.currentIndex + 1 : 0];
+}
+-(void)musicSeekToTime: (float)time {
+    [self.player seekToTime:CMTimeMake(time, 1)];
+}
+
+-(void)musicVolume: (float)volValue {
+    self.player.volume = volValue;
+}
 #pragma mark - delagate 的调用
 -(void) timerAction {
     if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus:)]) {
@@ -109,14 +149,8 @@ EVASingletonM(AVPlayer)
     }
 }
 
--(void)musicSeekToTime: (float)time {
 
-    [self.player seekToTime:CMTimeMake(time, 1)];
-}
 
--(void)musicVolume: (float)volValue {
-    self.player.volume = volValue;
-}
 
 
 @end

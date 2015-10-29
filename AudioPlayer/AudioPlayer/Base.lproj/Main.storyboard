@@ -249,15 +249,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-pP-MQy">
-                                        <rect key="frame" x="444" y="162" width="46" height="30"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="I5K-GA-NZ0"/>
-                                            <constraint firstAttribute="width" constant="46" id="YWZ-qJ-g2q"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yco-dq-41F">
                                         <rect key="frame" x="110" y="162" width="46" height="30"/>
                                         <animations/>
@@ -265,7 +256,10 @@
                                             <constraint firstAttribute="width" constant="46" id="AEP-n8-0KQ"/>
                                             <constraint firstAttribute="height" constant="30" id="YMd-sx-gz9"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="&lt;&lt;&lt;"/>
+                                        <connections>
+                                            <action selector="didUpButtonClick:" destination="C7h-2O-A0r" eventType="touchUpInside" id="Udm-2P-4GV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcQ-nH-t9i">
                                         <rect key="frame" x="277" y="162" width="46" height="30"/>
@@ -277,6 +271,18 @@
                                         <state key="normal" title="播放"/>
                                         <connections>
                                             <action selector="didPlayButtonClick:" destination="C7h-2O-A0r" eventType="touchUpInside" id="oHV-UN-JYm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-pP-MQy">
+                                        <rect key="frame" x="444" y="162" width="46" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="I5K-GA-NZ0"/>
+                                            <constraint firstAttribute="width" constant="46" id="YWZ-qJ-g2q"/>
+                                        </constraints>
+                                        <state key="normal" title="&gt;&gt;&gt;"/>
+                                        <connections>
+                                            <action selector="didNextButtonClivk:" destination="C7h-2O-A0r" eventType="touchUpInside" id="Bqf-cp-j7a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -314,14 +320,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aoH-nb-dQd" firstAttribute="top" secondItem="Bgd-Yn-a5d" secondAttribute="bottom" id="5sc-RR-nKe"/>
                             <constraint firstItem="C7h-2O-A0r" firstAttribute="top" secondItem="aoH-nb-dQd" secondAttribute="bottom" id="Hvk-yU-9Je"/>
                             <constraint firstItem="aoH-nb-dQd" firstAttribute="height" secondItem="XwS-8f-RJk" secondAttribute="height" multiplier="1:2" id="SpP-vQ-8Tv"/>
                             <constraint firstAttribute="trailing" secondItem="aoH-nb-dQd" secondAttribute="trailing" id="UmU-rv-X5w"/>
                             <constraint firstItem="aoH-nb-dQd" firstAttribute="leading" secondItem="XwS-8f-RJk" secondAttribute="leading" id="Xer-xK-uVu"/>
                             <constraint firstItem="C7h-2O-A0r" firstAttribute="leading" secondItem="XwS-8f-RJk" secondAttribute="leading" id="jH1-Nm-TmV"/>
                             <constraint firstAttribute="trailing" secondItem="C7h-2O-A0r" secondAttribute="trailing" id="mW0-dV-Xpo"/>
-                            <constraint firstItem="vUA-gw-aCU" firstAttribute="top" secondItem="C7h-2O-A0r" secondAttribute="bottom" id="qq2-0x-x7p"/>
+                            <constraint firstItem="aoH-nb-dQd" firstAttribute="top" secondItem="Bgd-Yn-a5d" secondAttribute="bottom" id="muM-J4-aIE"/>
+                            <constraint firstItem="vUA-gw-aCU" firstAttribute="top" secondItem="C7h-2O-A0r" secondAttribute="bottom" id="z9T-1M-owo"/>
                         </constraints>
                     </view>
                     <connections>

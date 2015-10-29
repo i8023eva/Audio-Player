@@ -57,22 +57,14 @@ static PlayerViewController *_instance = nil;
     
 //    [self.playerManager musicPlay];
 }
+
 #warning 单例化改变了 Controller 的生命周期, viewDidLoad 不重复执行
+#pragma mark - viewWillAppear
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //调用准备播放的歌曲同时获取模型
-    MusicInfo *musicInfo = [self.playerManager prepareMusicWithIndex:self.musicIndex];
-    
-    //控制台信息  timeSlider
-    [self.playerConsole prepareMusicWithInfo:musicInfo];
-    
-    self.lyricArr = [NSArray arrayWithArray:musicInfo.timeForLyric];
-    //tableView刷新
-    [self.musicLyric reloadData];
-    
-    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
-    [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+    //调用准备播放的歌曲
+    [self.playerManager prepareMusicWithIndex:self.musicIndex];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -121,11 +113,26 @@ static PlayerViewController *_instance = nil;
     [self.playerConsole playMusicWithFormatString:time];
 }
 
+-(void)didMusicCutWithMusicInfo:(MusicInfo *)musicInfo {
+    //控制台信息  timeSlider
+    [self.playerConsole prepareMusicWithInfo:musicInfo];
+    
+    self.lyricArr = [NSArray arrayWithArray:musicInfo.timeForLyric];
+    //tableView刷新
+    [self.musicLyric reloadData];
+    
+    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+    [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

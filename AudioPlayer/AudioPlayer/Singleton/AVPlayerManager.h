@@ -12,6 +12,10 @@
 @protocol AVPlayerManagerDelegate <NSObject>
 
 -(void) didPlayChangeStatus: (NSString *) time;
+/**
+ *  换歌时, 歌曲信息换
+ */
+-(void) didMusicCutWithMusicInfo: (MusicInfo *) musicInfo;
 
 @end
 
@@ -41,7 +45,7 @@ EVASingletonH(AVPlayer)
  *
  *  @param index 列表中的第几首
  */
--(MusicInfo *) prepareMusicWithIndex: (NSUInteger) index;
+-(void) prepareMusicWithIndex: (NSUInteger) index;
 /**
  *  播放音乐
  */
@@ -51,9 +55,18 @@ EVASingletonH(AVPlayer)
  */
 -(void) musicPause;
 /**
+ *  上一首
+ */
+-(void) musicUp;
+/**
+ *  下一首
+ */
+-(void) musicNext;
+
+/**
  *  播放时间拖拽
  *
- *  @param time <#time description#>
+ *  @param time
  */
 -(void) musicSeekToTime: (float) time;
 /**
