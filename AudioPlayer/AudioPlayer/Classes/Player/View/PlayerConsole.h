@@ -15,4 +15,11 @@
  *  @param musicInfo 音乐模型
  */
 -(void) prepareMusicWithInfo: (MusicInfo *)musicInfo;
+/**
+ *  slider音乐时间
+ *
+ *  @param time <#time description#>
+ */
+-(void) playMusicWithFormatString: (NSString *)time;
+
 @end

@@ -9,6 +9,7 @@
 #import "PlayerConsole.h"
 #import "MusicInfo.h"
 #import "MusicTimeFormat.h"
+#import "AVPlayerManager.h"
 
 @interface PlayerConsole ()
 
@@ -31,11 +32,30 @@
     self.totalTimeLabel.text = [MusicTimeFormat getStringFormatBySeconds: time];
     //
     self.timeSlider.maximumValue = time;
-    
-    
-    
 }
 
+-(void) playMusicWithFormatString: (NSString *)time {
+    self.timeSlider.value = [MusicTimeFormat getSecondsFormatByString:time];
+    self.currentLabel.text = time;
+}
+#pragma mark - 播放& 暂停
+-(IBAction) didPlayButtonClick: (UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"播放"]) {
+        [sender setTitle:@"暂停" forState: UIControlStateNormal];
+        [[AVPlayerManager sharedAVPlayer] musicPlay];
+    }else {
+        [sender setTitle:@"播放" forState: UIControlStateNormal];
+        [[AVPlayerManager sharedAVPlayer] musicPause];
+    }
+}
+
+-(IBAction) didTimeSliderValueChange: (UISlider *)sender {
+    [[AVPlayerManager sharedAVPlayer] musicSeekToTime:sender.value];
+}
+
+-(IBAction) didVolumeValueChange: (UISlider *)sender {
+    [[AVPlayerManager sharedAVPlayer] musicVolume:sender.value];
+}
 
 
 /*

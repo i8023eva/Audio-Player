@@ -213,6 +213,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="kB1-vq-m7M"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="didVolumeValueChange:" destination="C7h-2O-A0r" eventType="touchDragInside" id="AbO-LW-xRK"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-73-Tb5">
                                         <rect key="frame" x="108" y="30" width="384" height="31"/>
@@ -220,6 +223,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5SG-eA-6v9"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="didTimeSliderValueChange:" destination="C7h-2O-A0r" eventType="touchDragInside" id="CNG-nA-OS9"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDC-GV-gfK">
                                         <rect key="frame" x="15" y="34" width="80" height="21"/>
@@ -268,7 +274,10 @@
                                             <constraint firstAttribute="width" constant="46" id="qah-zT-3y6"/>
                                             <constraint firstAttribute="height" constant="30" id="u1f-c6-mQu"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="播放"/>
+                                        <connections>
+                                            <action selector="didPlayButtonClick:" destination="C7h-2O-A0r" eventType="touchUpInside" id="oHV-UN-JYm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>

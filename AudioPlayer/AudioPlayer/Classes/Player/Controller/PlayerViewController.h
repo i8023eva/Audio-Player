@@ -10,4 +10,6 @@
 
 @interface PlayerViewController : ViewController
 @property (nonatomic, assign) NSUInteger musicIndex;
+
++(instancetype) sharedPlayerViewController;
 @end

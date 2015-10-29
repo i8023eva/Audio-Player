@@ -50,6 +50,20 @@ EVASingletonH(AVPlayer)
  *  暂停
  */
 -(void) musicPause;
+/**
+ *  播放时间拖拽
+ *
+ *  @param time <#time description#>
+ */
+-(void) musicSeekToTime: (float) time;
+/**
+ *  声量改变
+ *
+ *  @param volValue 0.0 ~ 1.0
+ */
+-(void) musicVolume: (float) volValue;
+
+
 
 
 @end

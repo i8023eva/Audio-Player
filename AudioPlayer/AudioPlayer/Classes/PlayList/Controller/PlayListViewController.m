@@ -42,11 +42,24 @@
     
     [self.playerManager prepareMusicWithIndex:indexPath.row];
     
-    PlayerViewController *playerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    PlayerViewController *playerVC = [PlayerViewController sharedPlayerViewController];
+//    PlayerViewController *playerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
     
+//    playerVC.view.y = [UIScreen mainScreen].bounds.size.height;
+//    [UIView animateWithDuration:1.0 animations:^{
+//        
+//        playerVC.view.y = 0;
+//    } completion:^(BOOL finished) {
+//        
+//    }];
     playerVC.musicIndex = indexPath.row;
     
+    
     [self.navigationController pushViewController:playerVC animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 #pragma mark - view load

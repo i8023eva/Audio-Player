@@ -26,18 +26,45 @@
 
 @end
 
+static PlayerViewController *_instance = nil;
 @implementation PlayerViewController
+/**
+ *  storyboard 实例化
+ *
+ *  @return PlaylistCon 中使用
+ */
++(instancetype) sharedPlayerViewController {
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        _instance = [storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    });
+    return _instance;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.playerManager = [AVPlayerManager sharedAVPlayer];
     self.playerManager.delegate = self;
+
+#warning 提前约束的生命周期
+    [self.musicPic layoutIfNeeded];
+    
+    [self.musicPic.layer setMasksToBounds:YES];
+    self.musicPic.layer.cornerRadius = self.musicPic.height / 2;
+    
+//    [self.playerManager musicPlay];
+}
+#warning 单例化改变了 Controller 的生命周期, viewDidLoad 不重复执行
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     //调用准备播放的歌曲同时获取模型
     MusicInfo *musicInfo = [self.playerManager prepareMusicWithIndex:self.musicIndex];
     
-    //控制台信息
+    //控制台信息  timeSlider
     [self.playerConsole prepareMusicWithInfo:musicInfo];
     
     self.lyricArr = [NSArray arrayWithArray:musicInfo.timeForLyric];
@@ -46,18 +73,6 @@
     
     [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
     [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
-
-#warning 提前约束的生命周期
-    [self.musicPic layoutIfNeeded];
-    
-    [self.musicPic.layer setMasksToBounds:YES];
-    self.musicPic.layer.cornerRadius = self.musicPic.height / 2;
-    
-    
-
-     
-    
-    [self.playerManager musicPlay];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -65,7 +80,6 @@
     /**
      *  约束在此方法内才会进行设置   需要提前
      */
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -103,6 +117,8 @@
         }
     }
     self.musicPic.transform = CGAffineTransformRotate(self.musicPic.transform, M_PI / 180);
+    
+    [self.playerConsole playMusicWithFormatString:time];
 }
 
 

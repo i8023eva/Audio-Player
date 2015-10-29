@@ -94,6 +94,9 @@ EVASingletonM(AVPlayer)
     [self.timer invalidate];
     self.timer = nil;
 }
+-(void) musicStop {
+    
+}
 #pragma mark - delagate 的调用
 -(void) timerAction {
     if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus:)]) {
@@ -104,6 +107,15 @@ EVASingletonM(AVPlayer)
         //播放时, 外部调用改变状态的方法  ---传值: 时间字符串
         [self.delegate didPlayChangeStatus:[MusicTimeFormat getStringFormatBySeconds:currentTime]];
     }
+}
+
+-(void)musicSeekToTime: (float)time {
+
+    [self.player seekToTime:CMTimeMake(time, 1)];
+}
+
+-(void)musicVolume: (float)volValue {
+    self.player.volume = volValue;
 }
 
 
