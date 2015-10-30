@@ -45,6 +45,8 @@ static id _instance = nil;
 -(instancetype)init {
     self = [super init];
     if (self) {
+        self.currentIndex = -1;
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didMusicFinished) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     }
     return self;

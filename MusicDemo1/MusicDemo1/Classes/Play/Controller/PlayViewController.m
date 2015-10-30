@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *musicPicImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *lrcBackImageView;
+
+
 //控制台
 @property (weak, nonatomic) IBOutlet PlayerConsole *playConsole;
 
@@ -94,6 +97,7 @@ static PlayViewController *_instance = nil;
     
     [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:nil];
     [self.musicPicImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:nil];
+    [self.lrcBackImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:nil];
 }
 
 - (void)viewDidLoad {

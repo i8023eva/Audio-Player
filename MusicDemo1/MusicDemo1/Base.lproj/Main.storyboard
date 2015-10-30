@@ -126,6 +126,30 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                                 <animations/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-L3-wYy">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HOq-zk-ipD">
+                                                        <rect key="frame" x="180" y="30" width="240" height="240"/>
+                                                        <animations/>
+                                                        <color key="backgroundColor" red="0.8819842767814936" green="0.8536331700388865" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="HOq-zk-ipD" secondAttribute="height" id="Lhn-GQ-bI7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="height" secondItem="AkV-L3-wYy" secondAttribute="height" multiplier="0.8" id="EKO-8e-shq"/>
+                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="centerY" secondItem="AkV-L3-wYy" secondAttribute="centerY" id="cv2-yJ-8QW"/>
+                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="centerX" secondItem="AkV-L3-wYy" secondAttribute="centerX" id="kU8-U3-Ha0"/>
+                                                </constraints>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z1K-r5-9HV">
+                                                <rect key="frame" x="600" y="0.0" width="600" height="300"/>
+                                                <animations/>
+                                            </imageView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dYc-8Y-vmi">
                                                 <rect key="frame" x="600" y="0.0" width="600" height="300"/>
                                                 <animations/>
@@ -148,26 +172,6 @@
                                                     <outlet property="delegate" destination="J2X-Z5-VeB" id="lDF-07-zqn"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-L3-wYy">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HOq-zk-ipD">
-                                                        <rect key="frame" x="180" y="30" width="240" height="240"/>
-                                                        <animations/>
-                                                        <color key="backgroundColor" red="0.8819842767814936" green="0.8536331700388865" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="HOq-zk-ipD" secondAttribute="height" id="Lhn-GQ-bI7"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <animations/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="height" secondItem="AkV-L3-wYy" secondAttribute="height" multiplier="0.8" id="EKO-8e-shq"/>
-                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="centerY" secondItem="AkV-L3-wYy" secondAttribute="centerY" id="cv2-yJ-8QW"/>
-                                                    <constraint firstItem="HOq-zk-ipD" firstAttribute="centerX" secondItem="AkV-L3-wYy" secondAttribute="centerX" id="kU8-U3-Ha0"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,9 +180,13 @@
                                             <constraint firstAttribute="bottom" secondItem="AkV-L3-wYy" secondAttribute="bottom" id="GBP-gz-TBm"/>
                                             <constraint firstAttribute="trailing" secondItem="dYc-8Y-vmi" secondAttribute="trailing" id="NbP-2D-uw0"/>
                                             <constraint firstItem="AkV-L3-wYy" firstAttribute="top" secondItem="X3U-vs-hwQ" secondAttribute="top" id="Z7S-DD-hd8"/>
+                                            <constraint firstItem="z1K-r5-9HV" firstAttribute="leading" secondItem="AkV-L3-wYy" secondAttribute="trailing" id="a1J-al-Cop"/>
+                                            <constraint firstAttribute="trailing" secondItem="z1K-r5-9HV" secondAttribute="trailing" id="goo-Oj-HfJ"/>
                                             <constraint firstItem="cek-6Y-HPn" firstAttribute="top" secondItem="X3U-vs-hwQ" secondAttribute="top" id="hsm-bh-p3y"/>
+                                            <constraint firstItem="z1K-r5-9HV" firstAttribute="top" secondItem="X3U-vs-hwQ" secondAttribute="top" id="lRD-s4-Cr2"/>
                                             <constraint firstItem="dYc-8Y-vmi" firstAttribute="top" secondItem="X3U-vs-hwQ" secondAttribute="top" id="o6B-v3-Zxp"/>
                                             <constraint firstAttribute="bottom" secondItem="dYc-8Y-vmi" secondAttribute="bottom" id="odd-sV-C7N"/>
+                                            <constraint firstAttribute="bottom" secondItem="z1K-r5-9HV" secondAttribute="bottom" id="qnj-CP-YZB"/>
                                             <constraint firstItem="dYc-8Y-vmi" firstAttribute="leading" secondItem="AkV-L3-wYy" secondAttribute="trailing" id="rZf-EU-iIs"/>
                                             <constraint firstItem="cek-6Y-HPn" firstAttribute="leading" secondItem="X3U-vs-hwQ" secondAttribute="leading" id="sVB-ux-r7e"/>
                                             <constraint firstAttribute="bottom" secondItem="cek-6Y-HPn" secondAttribute="bottom" id="tDI-tB-nRE"/>
@@ -321,6 +329,7 @@
                     </view>
                     <connections>
                         <outlet property="backImageView" destination="cek-6Y-HPn" id="t36-cV-b38"/>
+                        <outlet property="lrcBackImageView" destination="z1K-r5-9HV" id="Qkh-ew-g2F"/>
                         <outlet property="musicPicImageView" destination="HOq-zk-ipD" id="8LA-J8-W0R"/>
                         <outlet property="playConsole" destination="Iiu-H7-cSU" id="jSs-rm-QpR"/>
                         <outlet property="tableView" destination="dYc-8Y-vmi" id="Nc2-q8-ldv"/>
