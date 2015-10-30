@@ -14,6 +14,10 @@
 
 @interface PlayerViewController ()<UITableViewDataSource, UITableViewDelegate, AVPlayerManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *musicLyric;
+
+@property (weak, nonatomic) IBOutlet UIImageView *LrcBackimageView;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *musicPic;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 //控制台
@@ -49,6 +53,8 @@ static PlayerViewController *_instance = nil;
     self.playerManager = [AVPlayerManager sharedAVPlayer];
     self.playerManager.delegate = self;
 
+    
+    
 #warning 提前约束的生命周期
     [self.musicPic layoutIfNeeded];
     
@@ -124,6 +130,9 @@ static PlayerViewController *_instance = nil;
     [self.backImageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
     [self.musicPic sd_setImageWithURL:[NSURL URLWithString:musicInfo.picUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
 
+    
+    [self.LrcBackimageView sd_setImageWithURL:[NSURL URLWithString:musicInfo.blurPicUrl] placeholderImage:[UIImage imageNamed:@"logo.tiff"]];
+    
 }
 
 

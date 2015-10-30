@@ -30,6 +30,8 @@ EVASingletonM(AVPlayer)
 -(instancetype)init {
     self = [super init];
     if (self) {
+        self.currentIndex = -1;
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didMusicFinished) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     }
     return self;
@@ -85,7 +87,6 @@ EVASingletonM(AVPlayer)
             handler();
         });
     });
-    
 }
 #pragma mark - cell  ----Managerdelegate
 -(void) prepareMusicWithIndex: (NSUInteger) index {
@@ -102,7 +103,7 @@ EVASingletonM(AVPlayer)
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:musicInfo.mp3Url]];
         //替换当前的 Item
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
-       
+        
         
     }
 }
@@ -141,7 +142,7 @@ EVASingletonM(AVPlayer)
 -(void) timerAction {
     if ([self.delegate respondsToSelector:@selector(didPlayChangeStatus:)]) {
         
-//        self.player.currentTime.value / self.player.currentTime.   当前播放时间
+        //        self.player.currentTime.value / self.player.currentTime.   当前播放时间
         CGFloat currentTime =  CMTimeGetSeconds(self.player.currentTime);
         
         //播放时, 外部调用改变状态的方法  ---传值: 时间字符串
